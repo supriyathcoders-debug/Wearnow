@@ -73,53 +73,53 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [Analytics::class, 'index'])->name('dashboard-analytics');
 
     // Layout
-    Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
-    Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
-    Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
-    Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
-    Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
+    // Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
+    // Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
+    // Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
+    // Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
+    // Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
     // Pages
-    Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
-    Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name('pages-account-settings-notifications');
-    Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
-    Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
-    Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
+    // Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
+    // Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name('pages-account-settings-notifications');
+    // Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
+    // Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
+    // Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
 
     // Cards
-    Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
+    // Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
 
     // User Interface
-    Route::get('/ui/accordion', [Accordion::class, 'index'])->name('ui-accordion');
-    Route::get('/ui/alerts', [Alerts::class, 'index'])->name('ui-alerts');
-    Route::get('/ui/badges', [Badges::class, 'index'])->name('ui-badges');
-    Route::get('/ui/buttons', [Buttons::class, 'index'])->name('ui-buttons');
-    Route::get('/ui/carousel', [Carousel::class, 'index'])->name('ui-carousel');
-    Route::get('/ui/collapse', [Collapse::class, 'index'])->name('ui-collapse');
-    Route::get('/ui/dropdowns', [Dropdowns::class, 'index'])->name('ui-dropdowns');
-    Route::get('/ui/footer', [Footer::class, 'index'])->name('ui-footer');
-    Route::get('/ui/list-groups', [ListGroups::class, 'index'])->name('ui-list-groups');
-    Route::get('/ui/modals', [Modals::class, 'index'])->name('ui-modals');
-    Route::get('/ui/navbar', [Navbar::class, 'index'])->name('ui-navbar');
-    Route::get('/ui/offcanvas', [Offcanvas::class, 'index'])->name('ui-offcanvas');
-    Route::get('/ui/pagination-breadcrumbs', [PaginationBreadcrumbs::class, 'index'])->name('ui-pagination-breadcrumbs');
-    Route::get('/ui/progress', [Progress::class, 'index'])->name('ui-progress');
-    Route::get('/ui/spinners', [Spinners::class, 'index'])->name('ui-spinners');
-    Route::get('/ui/tabs-pills', [TabsPills::class, 'index'])->name('ui-tabs-pills');
-    Route::get('/ui/toasts', [Toasts::class, 'index'])->name('ui-toasts');
-    Route::get('/ui/tooltips-popovers', [TooltipsPopovers::class, 'index'])->name('ui-tooltips-popovers');
-    Route::get('/ui/typography', [Typography::class, 'index'])->name('ui-typography');
+    // Route::get('/ui/accordion', [Accordion::class, 'index'])->name('ui-accordion');
+    // Route::get('/ui/alerts', [Alerts::class, 'index'])->name('ui-alerts');
+    // Route::get('/ui/badges', [Badges::class, 'index'])->name('ui-badges');
+    // Route::get('/ui/buttons', [Buttons::class, 'index'])->name('ui-buttons');
+    // Route::get('/ui/carousel', [Carousel::class, 'index'])->name('ui-carousel');
+    // Route::get('/ui/collapse', [Collapse::class, 'index'])->name('ui-collapse');
+    // Route::get('/ui/dropdowns', [Dropdowns::class, 'index'])->name('ui-dropdowns');
+    // Route::get('/ui/footer', [Footer::class, 'index'])->name('ui-footer');
+    // Route::get('/ui/list-groups', [ListGroups::class, 'index'])->name('ui-list-groups');
+    // Route::get('/ui/modals', [Modals::class, 'index'])->name('ui-modals');
+    // Route::get('/ui/navbar', [Navbar::class, 'index'])->name('ui-navbar');
+    // Route::get('/ui/offcanvas', [Offcanvas::class, 'index'])->name('ui-offcanvas');
+    // Route::get('/ui/pagination-breadcrumbs', [PaginationBreadcrumbs::class, 'index'])->name('ui-pagination-breadcrumbs');
+    // Route::get('/ui/progress', [Progress::class, 'index'])->name('ui-progress');
+    // Route::get('/ui/spinners', [Spinners::class, 'index'])->name('ui-spinners');
+    // Route::get('/ui/tabs-pills', [TabsPills::class, 'index'])->name('ui-tabs-pills');
+    // Route::get('/ui/toasts', [Toasts::class, 'index'])->name('ui-toasts');
+    // Route::get('/ui/tooltips-popovers', [TooltipsPopovers::class, 'index'])->name('ui-tooltips-popovers');
+    // Route::get('/ui/typography', [Typography::class, 'index'])->name('ui-typography');
 
     // Extended UI
-    Route::get('/extended/ui-perfect-scrollbar', [PerfectScrollbar::class, 'index'])->name('extended-ui-perfect-scrollbar');
-    Route::get('/extended/ui-text-divider', [TextDivider::class, 'index'])->name('extended-ui-text-divider');
+    // Route::get('/extended/ui-perfect-scrollbar', [PerfectScrollbar::class, 'index'])->name('extended-ui-perfect-scrollbar');
+    // Route::get('/extended/ui-text-divider', [TextDivider::class, 'index'])->name('extended-ui-text-divider');
 
     // Icons
-    Route::get('/icons/boxicons', [Boxicons::class, 'index'])->name('icons-boxicons');
+    // Route::get('/icons/boxicons', [Boxicons::class, 'index'])->name('icons-boxicons');
 
-    // Form Elements
-    Route::get('/forms/basic-inputs', [BasicInput::class, 'index'])->name('forms-basic-inputs');
-    Route::get('/forms/input-groups', [InputGroups::class, 'index'])->name('forms-input-groups');
+    // // Form Elements
+    // Route::get('/forms/basic-inputs', [BasicInput::class, 'index'])->name('forms-basic-inputs');
+    // Route::get('/forms/input-groups', [InputGroups::class, 'index'])->name('forms-input-groups');
 
     // Products
     Route::resource('products', ProductController::class);

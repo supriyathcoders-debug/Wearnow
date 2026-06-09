@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthenticationController;
-
+use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ShopController;
+use App\Http\Controllers\Api\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,5 +19,14 @@ use App\Http\Controllers\Api\AuthenticationController;
 
 use App\Http\Controllers\UserController;
 
-Route::middleware('auth:sanctum')->get('/user', [UserController::class, 'get']);
-Route::middleware('auth:sanctum')->get('/register', [AuthenticationController::class, 'store']);
+Route::post('/login', [AuthenticationController::class, 'login']);
+Route::post('/register', [AuthenticationController::class, 'store']);
+
+Route::middleware('auth:api')->group(function () {
+  Route::get('/user', [AuthenticationController::class, 'get']);
+  Route::get('/products', [ProductController::class, 'products']);
+  Route::get('/shops', [ShopController::class, 'shops']);
+  Route::get('/categories', [CategoryController::class, 'categories']);
+  Route::get('/shop/{id}/products', [ShopController::class, 'products']);
+  Route::get('/{id}/products', [ProductController::class, 'productsDetails']);
+});
