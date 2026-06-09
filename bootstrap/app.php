@@ -14,5 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     //
   })
   ->withExceptions(function (Exceptions $exceptions) {
-    //
+    $exceptions->render(function (\Illuminate\Http\Exceptions\PostTooLargeException $e, $request) {
+        return back()->withInput()->with('error', 'The uploaded files are too large. Please upload files smaller than 10MB.');
+    });
   })->create();

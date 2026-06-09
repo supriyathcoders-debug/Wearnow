@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\authentications;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class LoginBasic extends Controller
 {
@@ -11,19 +14,22 @@ class LoginBasic extends Controller
   {
     return view('content.authentications.auth-login-basic');
   }
-  public function login(Request $request)
+  public function store(LoginRequest $request)
   {
-    $request->validate([
-      'email' => 'required|email',
-      'password' => 'required',
-    ]);
-    $user = User::where('email', $request->email)->first();
+    // Check if user exists by email or username
+    $user = User::where('email', $request->email)->orWhere('username', $request->email)->first();
+
     if (!$user) {
-      return redirect()->back()->with('error', 'Invalid email or password');
+      return redirect()->back()->withInput()->with('error', 'Invalid email or password');
     }
+
     if (!Hash::check($request->password, $user->password)) {
-      return redirect()->back()->with('error', 'Invalid email or password');
+      return redirect()->back()->withInput()->with('error', 'Invalid email or password');
     }
-    return redirect()->route('dashboard-analytics');
+
+    // Log the user in
+    Auth::login($user);
+
+    return redirect()->route('dashboard-analytics')->with('success', 'Login successful!');
   }
 }

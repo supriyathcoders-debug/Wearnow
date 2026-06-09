@@ -54,8 +54,8 @@ use Illuminate\Support\Facades\Route;
                                 </div>
                             </div>
                             <div class="flex-grow-1">
-                                <h6 class="mb-0">John Doe</h6>
-                                <small class="text-muted">Admin</small>
+                                <h6 class="mb-0">{{ Auth::user()->name ?? 'John Doe' }}</h6>
+                                <small class="text-muted">{{ Auth::user()->email ?? 'Admin' }}</small>
                             </div>
                         </div>
                     </a>
@@ -74,20 +74,15 @@ use Illuminate\Support\Facades\Route;
                     </a>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="javascript:void(0);">
-                        <span class="d-flex align-items-center align-middle">
-                            <i class="flex-shrink-0 icon-base bx bx-credit-card icon-md me-3"></i><span class="flex-grow-1 align-middle">Billing Plan</span>
-                            <span class="flex-shrink-0 badge rounded-pill bg-danger">4</span>
-                        </span>
-                    </a>
-                </li>
-                <li>
                     <div class="dropdown-divider my-1"></div>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="javascript:void(0);">
-                        <i class="icon-base bx bx-power-off icon-md me-3"></i><span>Log Out</span>
-                    </a>
+                    <form action="{{ route('auth-logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="dropdown-item">
+                            <i class="icon-base bx bx-power-off icon-md me-3"></i><span>Log Out</span>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </li>

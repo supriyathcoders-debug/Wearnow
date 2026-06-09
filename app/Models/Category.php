@@ -6,23 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $fillable = ['category_name', 'slug', 'description', 'image'];
 
-    public function up(): void
+    public function subCategories()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description')->nullable();
-            $table->string('image')->nullable();
-            $table->string('status')->default('active');
-            $table->timestamps();
-        });
+        return $this->hasMany(SubCategory::class);
     }
 
-    public function down(): void
+    public function products()
     {
-        Schema::dropIfExists('categories');
+        return $this->hasManyThrough(Product::class, SubCategory::class);
     }
-
-}
+};

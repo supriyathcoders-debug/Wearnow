@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,6 +28,10 @@ class DatabaseSeeder extends Seeder
             'country' => 'Bangladesh',
             'role' => 'admin',
             'status' => 'active',
+            'latitude' => '23.71836',
+            'longitude' => '90.354222',
+            
+
             'password' => Hash::make('password'),
         ]);
     }
